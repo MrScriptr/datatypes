@@ -26,25 +26,11 @@ void listinsert(list *arr, void *value, int position) {
   arr->ptr = temp;
   arr->size += 1;
   
-  for (int i = arr->size - 1; i > position; i--) {
+  for (int i = arr->size - 1; i >= position; i--) {
     arr->ptr[i + 1] = arr->ptr[i];
   }
 
   arr->ptr[position] = value;
-}
-
-void printlist(list *arr) {
-  for (int i = 0; i < arr->size; i++) {
-    if (arr->ptr[i] == NULL) {
-      printf("NULL\n");
-      continue;
-    }
-
-    char disp[20];
-    snprintf(disp, sizeof(disp), "%s", arr->ptr[i]);
-    
-    printf("%s\n", disp);
-  }
 }
 
 list initlist() {
